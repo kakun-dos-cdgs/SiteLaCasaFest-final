@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <script>
+      document.documentElement.classList.add("js-reveal");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="La Casa Fest: locações, formatos de evento e solicitação de orçamento em Ferraz de Vasconcelos."
+    />
+    <link rel="icon" type="image/png" href="imagens/LAmLB.jpg" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Programação | La Casa Fest</title>
+  </head>
+
+  <body>
+    <section class="orcamento-section" id="orcamento">
+      <div class="site-width orcamento-layout">
+        <!-- INTRODUÇÃO -->
+        <div class="orcamento-intro reveal-left">
+          <p class="eyebrow">
+            <span class="roof-mark"><i></i></span>
+            La Casa Fest
+          </p>
+
+          <h2 class="section-title" id="orcamento-title">
+            Vamos planejar<br />
+            <em>o seu evento.</em>
+          </h2>
+
+          <p>
+            Preencha os dados abaixo e receba uma proposta personalizada — data,
+            formato e estrutura pensados para a sua celebração.
+          </p>
+
+          <div class="orcamento-highlights reveal-stagger">
+            <div class="reveal-scale">
+              ✦
+              <span>Resposta em até 24h</span>
+            </div>
+
+            <div class="reveal-scale">
+              ◎
+              <span>Proposta sob medida</span>
+            </div>
+
+            <div class="reveal-scale">
+              ⌕
+              <span>Fala direto com a casa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <div class="orcamento-card reveal-right" id="formCard">
+          <div class="alert alert-error" id="formError" hidden></div>
+          <div class="alert alert-success" id="formSuccess" hidden></div>
+
+          <form id="orcamentoForm" autocomplete="on">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nome">
+                  Nome completo
+                  <span class="req">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  placeholder="Seu nome"
+                  required
+                  maxlength="120"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="telefone">
+                  WhatsApp / Telefone
+                  <span class="req">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="telefone"
+                  name="telefone"
+                  placeholder="(11) 99999-9999"
+                  required
+                  maxlength="20"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="tipoEvento">
+                  Tipo de evento
+                  <span class="req">*</span>
+                </label>
+                <select id="tipoEvento" name="tipoEvento" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="Aniversário">Aniversário</option>
+                  <option value="Casamento">Casamento</option>
+                  <option value="Confraternização">Confraternização</option>
+                  <option value="Formatura">Formatura</option>
+                  <option value="Chá de bebê">Chá de bebê</option>
+                  <option value="Chá revelação">Chá revelação</option>
+                  <option value="Corporativo">Corporativo</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="quantidadeConvidados">
+                  Convidados
+                  <span class="req">*</span>
+                </label>
+                <input
+                  type="number"
+                  id="quantidadeConvidados"
+                  name="quantidadeConvidados"
+                  placeholder="Ex: 50"
+                  min="1"
+                  required
+                />
+              </div>
+
+              <div class="form-group full">
+                <label for="dataEvento">
+                  Data do evento
+                  <span class="req">*</span>
+                </label>
+                <input type="date" id="dataEvento" name="dataEvento" required />
+                <span class="hint" id="dataHint">
+                  Datas já reservadas aparecem bloqueadas.
+                </span>
+              </div>
+
+              <div class="form-group full">
+                <label for="mensagem">Mensagem (opcional)</label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  placeholder="Conte um pouco mais sobre o evento, horários, preferências..."
+                  maxlength="1000"
+                ></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="button primary" id="btnEnviar">
+              Enviar solicitação
+            </button>
+          </form>
+
+          <!-- PAINEL DE SUCESSO -->
+          <div class="success-panel" id="successPanel" hidden>
+            <div class="success-icon">✓</div>
+            <h3>Solicitação enviada!</h3>
+            <p>Recebemos seu pedido de orçamento.</p>
+            <p class="success-note">Para agilizar, fale conosco no WhatsApp:</p>
+            <a
+              href="#"
+              class="button whatsapp"
+              id="btnWhatsapp"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.198-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.85 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+              Abrir WhatsApp
+            </a>
+            <button type="button" class="button ghost" id="btnNovo">
+              Fazer outra solicitação
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FOOTER — mesmo padrão das outras páginas (logo + ícones sociais)
+       ============================================================ -->
+    <footer class="site-footer">
+      <div class="site-width footer-inner reveal">
+        <div class="footer-brand">
+          <img src="imagens/LAmLB-removebg-preview.png" alt="La Casa Fest" />
+          <div>
+            <p>Ferraz de Vasconcelos · SP</p>
+          </div>
+          <div class="creditos">
+            <p>
+              <strong
+                >Criado por Kaio Oliveira, Juan Carlos, Italo Moreno, Gabriel
+                Soares, Jeferson Junior e Isaac Peres © 2026</strong
+              >
+            </p>
+          </div>
+        </div>
+        <nav class="footer-links" aria-label="Links do rodapé">
+          <a
+            href="https://www.instagram.com/lacasafestferraz/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            ><img src="imagens/Redes Sociais/instagram.png" alt="" /></a
+          ><a
+            href="https://www.google.com/maps/search/?api=1&query=Av.+Dom+Pedro+II,+320,+Vila+Romanopolis,+Ferraz+de+Vasconcelos+-+SP"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Como chegar"
+            ><img src="imagens/icons8-place-marker-50.png" alt="" /></a
+          ><a
+            href="https://wa.me/5511977941642"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="WhatsApp"
+            ><img src="imagens/Redes Sociais/whatsapp.png" alt=""
+          /></a>
+        </nav>
+      </div>
+    </footer>
+
+    <a
+      class="mobile-wa"
+      href="https://wa.me/5511977941642"
+      target="_blank"
+      rel="noreferrer"
+      >WhatsApp</a
+    >
+    <script src="script/formulario.js"></script>
+    <script src="script/reveal.js"></script>
+  </body>
+</html>
